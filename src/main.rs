@@ -12,7 +12,9 @@ fn solution2553() {
     struct Solution {}
 
     impl Solution {
-        pub fn separate_digits(nums: &mut Vec<i32>) {
+        pub fn separate_digits(nums: Vec<i32>) -> Vec<i32> {
+            let mut seperated_nums: Vec<i32> = nums.clone();
+
             if nums.len() > 1000 || nums.len() < 1 {
                 println!("Unsuported size of array");
                 panic!()
@@ -20,8 +22,8 @@ fn solution2553() {
 
             for num in nums.clone().iter() {
                 let char = num.to_string();
-                split_and_delete(char, nums);
-                nums.remove(0);
+                split_and_delete(char, &mut seperated_nums);
+                seperated_nums.remove(0);
             }
 
             fn split_and_delete(number: String, nums: &mut Vec<i32>) {
@@ -43,11 +45,15 @@ fn solution2553() {
                     nums.push(parsed);
                 }
             }
+
+            println!("input {:?}", seperated_nums);
+
+            return seperated_nums;
         }
     }
 
-    let mut input = Vec::from([7, 1, 3, 0]);
-    Solution::separate_digits(&mut input);
-
-    println!("input {:?}", input)
+    let input = Vec::from([7, 1, 3, 0]);
+    let input1 = Vec::from([13,25,83,77]);
+    Solution::separate_digits(input);
+    Solution::separate_digits(input1);
 }
