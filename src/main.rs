@@ -1,5 +1,46 @@
+use std::collections::{HashMap, HashSet};
+
 fn main() {
-    solution2553()
+    // solution2553()
+    // solution2554()
+}
+
+fn solution2554() {
+    // You are given an integer array banned and two integers n and maxSum. You are choosing some number of integers following the below rules:
+    //
+    //     The chosen integers have to be in the range [1, n].
+    //     Each integer can be chosen at most once.
+    //     The chosen integers should not be in the array banned.
+    //     The sum of the chosen integers should not exceed maxSum.
+    //
+    // Return the maximum number of integers you can choose following the mentioned rules.
+    //
+
+    struct Solution {}
+
+    impl Solution {
+        pub fn max_count(banned: Vec<i32>, n: i32, max_sum: i32) -> i32 {
+            let banned = banned.into_iter().collect::<HashSet<_>>();
+
+            let nums = (1..=n).filter(|v| !banned.contains(v));
+            let mut sum = 0;
+            let mut ans = 0;
+
+            for n in nums {
+                sum += n;
+                if sum > max_sum {
+                    break;
+                }
+                ans += 1;
+            }
+
+            ans
+        }
+    }
+
+    let banned = vec![11];
+    let result = Solution::max_count(banned, 7, 50);
+    println!("result {}", result);
 }
 
 fn solution2553() {
@@ -53,7 +94,24 @@ fn solution2553() {
     }
 
     let input = Vec::from([7, 1, 3, 0]);
-    let input1 = Vec::from([13,25,83,77]);
+    let input1 = Vec::from([13, 25, 83, 77]);
     Solution::separate_digits(input);
     Solution::separate_digits(input1);
+
+    //fast solution for refernce **NOT MINE**
+    //
+    // pub fn separate_digits(nums: Vec<i32>) -> Vec<i32> {
+    //     let mut rs = vec![];
+    //     for &n in &nums {
+    //         let mut n = n;
+    //         let mut tp = vec![];
+    //         while n > 0 {
+    //             tp.push(n % 10);
+    //             n /= 10;
+    //         }
+    //         tp.reverse();
+    //         rs.append(&mut tp);
+    //     }
+    //     rs
+    // }
 }
