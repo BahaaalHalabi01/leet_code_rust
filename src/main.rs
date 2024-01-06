@@ -1,8 +1,58 @@
-use std::collections::{HashMap, HashSet};
+use std::{
+    collections::{HashMap, HashSet},
+    ops::Range,
+};
 
 fn main() {
     // solution2553()
     // solution2554()
+    solution2549()
+}
+
+fn solution2549() {
+    // You are given a positive integer n, that is initially placed on a board. Every day, for 109 days, you perform the following procedure:
+    //
+    //     For each number x present on the board, find all numbers 1 <= i <= n such that x % i == 1.
+    //     Then, place those numbers on the board.
+    //
+    // Return the number of distinct integers present on the board after 109 days have elapsed.
+    //
+    struct Solution {}
+    impl Solution {
+        pub fn distinct_integers(n: i32) -> i32 {
+
+            // Time to quit programming wow
+            // if n > 1 {
+            //     n - 1
+            // } else {
+            //     1
+            // }
+
+            let mut numbers: HashSet<i32> = HashSet::new();
+            numbers.insert(n);
+            let mut index = 2;
+           
+            loop {
+                if index > n {
+                    break;
+                }
+           
+                for n in numbers.clone() {
+                    for j in 2..n {
+                        if n % j == 1 {
+                            numbers.insert(j);
+                        }
+                    }
+                }
+                index += 1;
+            }
+           
+            println!(" numbers {:?}",numbers);
+            numbers.len() as i32
+        }
+    }
+
+    Solution::distinct_integers(2);
 }
 
 fn solution2554() {
