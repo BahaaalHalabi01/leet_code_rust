@@ -3,10 +3,14 @@ use std::{
     ops::Range,
 };
 
+mod solution2610;
+
 fn main() {
     // solution2553()
     // solution2554()
-    solution2549()
+    // solution2549()
+
+    solution2610::Solution::new();
 }
 
 fn solution2549() {
@@ -20,7 +24,6 @@ fn solution2549() {
     struct Solution {}
     impl Solution {
         pub fn distinct_integers(n: i32) -> i32 {
-
             // Time to quit programming wow
             // if n > 1 {
             //     n - 1
@@ -31,12 +34,12 @@ fn solution2549() {
             let mut numbers: HashSet<i32> = HashSet::new();
             numbers.insert(n);
             let mut index = 2;
-           
+
             loop {
                 if index > n {
                     break;
                 }
-           
+
                 for n in numbers.clone() {
                     for j in 2..n {
                         if n % j == 1 {
@@ -46,8 +49,8 @@ fn solution2549() {
                 }
                 index += 1;
             }
-           
-            println!(" numbers {:?}",numbers);
+
+            println!(" numbers {:?}", numbers);
             numbers.len() as i32
         }
     }
