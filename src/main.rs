@@ -6,6 +6,7 @@ use std::{
 mod solution2605;
 mod solution2610;
 mod solution2611;
+mod solution2600;
 
 fn main() {
     // solution2553()
@@ -13,7 +14,8 @@ fn main() {
     // solution2549()
     // solution2610::Solution::new();
     // solution2611::Solution::new();
-    solution2605::Solution::new();
+    // solution2605::Solution::new();
+     solution2600::Solution::new();
 }
 
 fn solution2549() {
