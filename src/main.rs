@@ -3,6 +3,7 @@ use std::{
     ops::Range,
 };
 
+mod solution2605;
 mod solution2610;
 mod solution2611;
 
@@ -11,7 +12,8 @@ fn main() {
     // solution2554()
     // solution2549()
     // solution2610::Solution::new();
-     solution2611::Solution::new();
+    // solution2611::Solution::new();
+    solution2605::Solution::new();
 }
 
 fn solution2549() {
