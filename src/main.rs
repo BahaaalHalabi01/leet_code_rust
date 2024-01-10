@@ -9,17 +9,11 @@ mod solution2611;
 mod solution2600;
 mod solution1768;
 mod solution1071;
+mod solution1431;
 
 fn main() {
-    // solution2553()
-    // solution2554()
-    // solution2549()
-    // solution2610::Solution::new();
-    // solution2611::Solution::new();
-    // solution2605::Solution::new();
-     // solution2600::Solution::new();
-     // solution1768::Solution::new();
-     solution1071::Solution::new();
+
+    solution1431::Solution::new();
 }
 
 fn solution2549() {
