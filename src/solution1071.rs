@@ -1,11 +1,14 @@
 pub struct Solution {}
 
 impl Solution {
+    //answer beats 100% of users in runtime, 38.7% in memory
+    //i found an anser which uses string replacement to see if the
+    //rest of the values are the same, very interesting i did it manually tho sucks
     pub fn new() {
-        let str1 = String::from("TAUXXTAUXXTAUXXTAUXXTAUXX");
-        let str2 = String::from("TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX");
-        // let str1 = String::from("EFGABC");
-        // let str2 = String::from("ABC");
+        // let str1 = String::from("TAUXXTAUXXTAUXXTAUXXTAUXX");
+        // let str2 = String::from("TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX");
+        let str1 = String::from("EFGABC");
+        let str2 = String::from("ABC");
 
         let res = gcd_of_strings(str1, str2);
         println!("res {}", res);
@@ -42,39 +45,21 @@ impl Solution {
                 }
 
                 mx.insert(0, tmp.0.unwrap());
+
                 if mx.len() == gcd {
-                    if str0.next_back().is_some() {
-                        let mut str0 = str0.collect::<Vec<char>>();
-
-                        str0.insert(0, tmp.0.unwrap());
-
-                        println!("mx {:?}",str0);
-                        let same = str0.chunks(gcd).all(|c| c.iter().collect::<String>() == mx);
-
-                        match same {
-                            true => break,
-                            false => {
-                                mx = String::from("");
-                                break;
-                            }
+                    if gcd != l0 {
+                         
+                        let same = str0.collect::<Vec<char>>().chunks(gcd).all(|c| c.iter().collect::<String>() == mx);
+                        if !same {
+                            mx = String::from("");
                         };
                     }
-
-                    if str1.next_back().is_some() {
-                        let mut str1 = str1.collect::<Vec<char>>();
-                        str1.insert(0, tmp.1.unwrap());
-                        println!("mx {}",mx);
-                        let same = str1.chunks(gcd).all(|c| c.iter().collect::<String>() == mx);
-
-                        match same {
-                            true => break,
-                            false => {
-                                mx = String::from("");
-                                break;
-                            }
+                    if gcd != l1 {
+                        let same = str1.collect::<Vec<char>>().chunks(gcd).all(|c| c.iter().collect::<String>() == mx);
+                        if !same {
+                            mx = String::from("");
                         };
                     }
-                    //check the remaining values
 
                     break;
                 }
