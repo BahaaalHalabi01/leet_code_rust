@@ -12,12 +12,14 @@ mod solution1071;
 mod solution1431;
 mod solution605;
 mod solution345;
-mod solution151;
+// mod solution151;
 mod solution283;
+mod solution392;
+mod solution392_1;
 
 fn main() {
 
-    solution283::Solution::new();
+    solution392_1::Solution::new()
 }
 
 fn solution2549() {
