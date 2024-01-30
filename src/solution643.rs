@@ -37,6 +37,22 @@ impl Solution {
             }
 
             max
+
+            // nice solution on leet code, do not recalculate the sum, remove the first value and
+            // add one new value to get the new sum, saves a lot of time
+            // pub fn find_max_average(nums: Vec<i32>, k: i32) -> f64 {
+            //         let mut k = k as usize;
+            //         let mut k_f = k as f64;
+            //         let mut sum: i32 = nums[0..k].iter().sum();
+            //         let mut max_avg = sum as f64 / k as f64;
+            //
+            //         for i in k..nums.len() {
+            //             sum -= nums[i-k];
+            //             sum += nums[i];
+            //             max_avg = max_avg.max(sum as f64 / k_f);
+            //         }
+            //         return max_avg;
+            //     }
         }
     }
 }
