@@ -3,23 +3,23 @@ use std::{
     ops::Range,
 };
 
+mod solution1071;
+mod solution1431;
+mod solution1768;
+mod solution2600;
 mod solution2605;
 mod solution2610;
 mod solution2611;
-mod solution2600;
-mod solution1768;
-mod solution1071;
-mod solution1431;
-mod solution605;
 mod solution345;
+mod solution605;
 // mod solution151;
 mod solution283;
 mod solution392;
 mod solution392_1;
+mod solution643;
 
 fn main() {
-
-    solution392_1::Solution::new()
+    solution643::Solution::new()
 }
 
 fn solution2549() {
