@@ -17,9 +17,10 @@ mod solution283;
 mod solution392;
 mod solution392_1;
 mod solution643;
+mod solution2215;
 
 fn main() {
-    solution643::Solution::new()
+    solution2215::Solution::new()
 }
 
 fn solution2549() {
